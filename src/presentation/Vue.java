@@ -12,8 +12,8 @@ public class Vue {
 	private ClientService service = new ClientServiceImpl();
 	
 	public void showClient(int id) {
-		Client cl =service.getValidatedClient(id);
-		System.out.println(cl);
+
+		System.out.println(service.getValidatedClient(id));
 	}
 
 	public void createClient(String name) {
