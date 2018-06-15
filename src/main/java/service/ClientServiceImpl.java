@@ -1,6 +1,5 @@
 package service;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import dao.ClientDAO;
@@ -12,14 +11,14 @@ public class ClientServiceImpl implements ClientService {
 	private ClientDAO dao = new SQLClientDAO();
 
 	/**
-	 * Méthode permettant d'ajouter un client en BDD
+	 * Mï¿½thode permettant d'ajouter un client en BDD
 	 * 
 	 */
 	@Override
 	public void addClient(Client c) {
 		// TODO Auto-generated method stub
 		if (c.getName().length()<5) {
-			System.out.println("Le nom doit comporter 5 caractères au minimum");
+			System.out.println("Le nom doit comporter 5 caractï¿½res au minimum");
 		}else if(c.getName()==null) {
 			System.out.println("Merci de saisir un nom");
 		}else {

@@ -1,6 +1,5 @@
 package service;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import model.Client;

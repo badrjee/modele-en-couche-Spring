@@ -16,7 +16,6 @@ public class SQLClientDAO extends AbstractDAO implements ClientDAO {
 		Connection cn = null;
 		PreparedStatement st = null;
 		// initialisation du result set
-		ResultSet rs = null;
 		try {
 			cn = getConnectionDM();
 
@@ -45,28 +44,26 @@ public class SQLClientDAO extends AbstractDAO implements ClientDAO {
 
 	@Override
 	public Client findById(int id) {
-		//nouvelle liste pour résultats
-		List<Client> results = new ArrayList();
 		Connection cn = null;
 		PreparedStatement st = null;
 		// initialisation du result set
 		ResultSet rs = null;
 		Client cl = new Client();
-		
+
 		try {
 			cn = getConnectionDM();
 
-			String sql = "SELECT * FROM client WHERE id ="+id;
+			String sql = "SELECT * FROM client WHERE id =" + id;
 
 			st = cn.prepareStatement(sql);
 
 			rs = st.executeQuery();
 
-			// NE PAS OUBLIER car la connection établie désactive le
+			// NE PAS OUBLIER car la connection ï¿½tablie dï¿½sactive le
 			// le commit automatique
 			cn.commit();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				cl.setName(rs.getString(2));
 				cl.setId(rs.getInt(1));
 			}
@@ -82,8 +79,8 @@ public class SQLClientDAO extends AbstractDAO implements ClientDAO {
 
 	@Override
 	public List<Client> findAll() {
-		//nouvelle liste pour résultats
-		List<Client> results = new ArrayList();
+		// nouvelle liste pour rï¿½sultats
+		List<Client> results = new ArrayList<>();
 		Connection cn = null;
 		PreparedStatement st = null;
 		// initialisation du result set
@@ -98,11 +95,11 @@ public class SQLClientDAO extends AbstractDAO implements ClientDAO {
 
 			rs = st.executeQuery();
 
-			// NE PAS OUBLIER car la connection établie désactive le
+			// NE PAS OUBLIER car la connection ï¿½tablie dï¿½sactive le
 			// le commit automatique
 			cn.commit();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				Client cl = new Client();
 				cl.setName(rs.getString(2));
 				cl.setId(rs.getInt(1));
