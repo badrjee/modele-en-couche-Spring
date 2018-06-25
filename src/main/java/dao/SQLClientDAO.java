@@ -13,6 +13,40 @@ public class SQLClientDAO extends AbstractDAO implements ClientDAO {
 
 	@Override
 	public void save(Client c) {
+		if (c.getId() >= 0) {
+			// Mise à jour car id rempli.
+			this.update(c);
+		} else {
+			// Création car id non défini.
+			this.create(c);
+		}
+	}
+
+	private void update(Client c) {
+		Connection cn = null;
+		PreparedStatement st = null;
+		// initialisation du result set
+		try {
+			cn = getConnectionDM();
+
+			String sql = "UPDATE client SET name= ? WHERE id=?";
+
+			st = cn.prepareStatement(sql);
+
+			st.setString(1, c.getName());
+			st.setInt(2, c.getId());
+
+			st.executeUpdate();
+			cn.commit();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(cn, st, null);
+		}
+	}
+
+	private void create(Client c) {
 		Connection cn = null;
 		PreparedStatement st = null;
 		// initialisation du result set
@@ -29,7 +63,6 @@ public class SQLClientDAO extends AbstractDAO implements ClientDAO {
 			cn.commit();
 
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(cn, st, null);
@@ -38,7 +71,6 @@ public class SQLClientDAO extends AbstractDAO implements ClientDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
 
 	}
 

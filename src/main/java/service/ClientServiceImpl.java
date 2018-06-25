@@ -11,17 +11,16 @@ public class ClientServiceImpl implements ClientService {
 	private ClientDAO dao = new SQLClientDAO();
 
 	/**
-	 * M�thode permettant d'ajouter un client en BDD
+	 * Méthode permettant d'ajouter un client en BDD
 	 * 
 	 */
 	@Override
-	public void addClient(Client c) {
-		// TODO Auto-generated method stub
-		if (c.getName().length()<5) {
-			System.out.println("Le nom doit comporter 5 caract�res au minimum");
-		}else if(c.getName()==null) {
+	public void saveClient(Client c) {
+		if (c.getName().length() < 5) {
+			System.out.println("Le nom doit comporter 5 caractères au minimum");
+		} else if (c.getName() == null) {
 			System.out.println("Merci de saisir un nom");
-		}else {
+		} else {
 			dao.save(c);
 		}
 	}
@@ -38,8 +37,6 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public void deleteClient(int id) {
-		// TODO Auto-generated method stub
 		dao.delete(id);
-
 	}
 }

@@ -3,4 +3,15 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
+	<display-name>Ma super application en couches !</display-name>
+
+	<servlet>
+		<servlet-name>ViewsServlet</servlet-name>
+		<servlet-class>presentation.ViewsServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ViewsServlet</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
 </web-app>

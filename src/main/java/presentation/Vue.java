@@ -8,7 +8,7 @@ import service.ClientServiceImpl;
 
 public class Vue {
 
-	//implémentation de Client Service
+	//implï¿½mentation de Client Service
 	private ClientService service = new ClientServiceImpl();
 	
 	public void showClient(int id) {
@@ -19,7 +19,7 @@ public class Vue {
 	public void createClient(String name) {
 		Client c = new Client();
 		c.setName(name);
-		service.addClient(c);
+		service.saveClient(c);
 	}
 
 	public void showAllClients() {

@@ -6,7 +6,7 @@ import model.Client;
 
 public interface ClientService {
 
-	public void addClient(Client c);
+	public void saveClient(Client c);
 
 	public Client getValidatedClient(int id);
 
