@@ -26,7 +26,7 @@ public abstract class AbstractDAO<ENTITY> {
 	 * URL de connexion JDBC utilisant les paramètres décrits par MySQL <a href=
 	 * "https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-configuration-properties.html">ici</a>.
 	 */
-	private final static String CONNECTION_URL = "jdbc:mysql://localhost:3306/blog?useSSL=false&user=root&password=root";
+	private final static String CONNECTION_URL = "jdbc:mysql://localhost:3306/couchev2?useSSL=false&user=root&password=";
 
 	/**
 	 * Instance singleton de l'objet de connexion JDBC.
