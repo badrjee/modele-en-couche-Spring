@@ -1,17 +1,21 @@
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	version="3.1">
-	<display-name>Ma super application en couches !</display-name>
-
-	<servlet>
-		<servlet-name>ViewsServlet</servlet-name>
-		<servlet-class>presentation.ViewsServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>ViewsServlet</servlet-name>
-		<url-pattern>*.html</url-pattern>
-	</servlet-mapping>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>Ma super application en couches !</display-name>
+  <servlet>
+    <servlet-name>ViewsServlet</servlet-name>
+    <servlet-class>presentation.ViewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewsServlet</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <description>Configuration de spring : indiquer l'emplacement du fichier de configuration
+	 	spring-beans définissant l'application context</description>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:///spring-dispatcher-servlet.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 </web-app>
