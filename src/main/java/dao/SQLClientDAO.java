@@ -26,7 +26,7 @@ public class SQLClientDAO extends ClientDAO {
 			st.setInt(2, client.getId());
 
 			st.executeUpdate();
-			cn.commit();
+			//cn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -47,7 +47,7 @@ public class SQLClientDAO extends ClientDAO {
 			st.setString(1, client.getName());
 
 			st.executeUpdate();
-			cn.commit();
+			//cn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -79,7 +79,7 @@ public class SQLClientDAO extends ClientDAO {
 
 			// NE PAS OUBLIER car la connection �tablie d�sactive le
 			// le commit automatique
-			cn.commit();
+			//cn.commit();
 
 			while (rs.next()) {
 				cl.setName(rs.getString(2));
@@ -111,7 +111,7 @@ public class SQLClientDAO extends ClientDAO {
 
 			// NE PAS OUBLIER car la connection �tablie d�sactive le
 			// le commit automatique
-			cn.commit();
+			//cn.commit();
 
 			while (rs.next()) {
 				Client cl = new Client();
