@@ -13,7 +13,7 @@ public class Vue {
 	//impl�mentation de Client Service
 	
 	@Autowired
-	private ClientServiceImpl service;
+	private ClientService service;
 	
 	public void showClient(int id) {
 

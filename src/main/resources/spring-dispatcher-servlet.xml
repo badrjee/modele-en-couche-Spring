@@ -16,7 +16,7 @@
 
 <!-- Déclaration d'un bean (scope-singleton) permettant d'injecter une instance unique du service 
 qui manipule les objets d'articles partout où demander (via @Autowired) -->
-    <bean id="clientService" class="service.ClientServiceImpl"></bean>
-    <bean id="clientDao" class="dao.SQLClientDAO"></bean>
+    <bean id="service" class="service.ClientServiceImpl"></bean>
+    <bean id="dao" class="dao.SQLClientDAO"></bean>
 
 </beans>
