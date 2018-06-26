@@ -26,7 +26,7 @@ public class SQLClientDAO extends ClientDAO {
 			st.setInt(2, client.getId());
 
 			st.executeUpdate();
-			//cn.commit();
+			cn.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

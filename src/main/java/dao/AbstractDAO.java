@@ -46,6 +46,7 @@ public abstract class AbstractDAO<ENTITY> {
 				AbstractDAO.CONNECTION = DriverManager
 						.getConnection(CONNECTION_URL);
 				
+				
 				AbstractDAO.CONNECTION.setAutoCommit(false);
 			} catch (SQLException | ClassNotFoundException e) {
 				AbstractDAO.LOGGER.debug(
