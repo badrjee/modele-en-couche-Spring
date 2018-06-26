@@ -45,6 +45,8 @@ public abstract class AbstractDAO<ENTITY> {
 				Class.forName("com.mysql.jdbc.Driver");
 				AbstractDAO.CONNECTION = DriverManager
 						.getConnection(CONNECTION_URL);
+				
+				AbstractDAO.CONNECTION.setAutoCommit(false);
 			} catch (SQLException | ClassNotFoundException e) {
 				AbstractDAO.LOGGER.debug(
 						"URL ou driver de connection à la base de données incorrecte : "
@@ -52,7 +54,7 @@ public abstract class AbstractDAO<ENTITY> {
 				throw new RuntimeException(
 						"Connexion à la base de données impossible, veuillez arrêter l'application.",
 						e);
-			}
+			}  
 		}
 		return AbstractDAO.CONNECTION;
 	}
