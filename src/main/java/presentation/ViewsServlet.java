@@ -30,11 +30,14 @@ public class ViewsServlet extends AutowiredServlet {
 	@Autowired
 	private ClientService service;
 
-//	@Override
-//	public void init() throws ServletException {
-//		final WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-//		ctx.getAutowireCapableBeanFactory().autowireBean(this);
-//	} //cette méthode est utiliser pour intgrer Autowired sans passer par une classe AutowiredServlet et dans ce cas "public class ViewsServlet extends httpServlet"
+	// @Override
+	// public void init() throws ServletException {
+	// final WebApplicationContext ctx =
+	// WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+	// ctx.getAutowireCapableBeanFactory().autowireBean(this);
+	// } //cette méthode est utiliser pour intgrer Autowired sans passer par une
+	// classe AutowiredServlet et dans ce cas "public class ViewsServlet extends
+	// httpServlet"
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,9 +52,17 @@ public class ViewsServlet extends AutowiredServlet {
 				request.setAttribute("clients", this.service.getAllClient());
 				break;
 			case "show-client":
+				request.setAttribute("client", this.service.getValidatedClient(Integer.parseInt(clientId)));
+				break;
 			case "edit-client":
 				request.setAttribute("client", this.service.getValidatedClient(Integer.parseInt(clientId)));
 				break;
+			case "delete-client":
+				this.service.deleteClient(Integer.parseInt(clientId));
+				request.setAttribute("clients", this.service.getAllClient());
+				
+				break;
+
 			}
 			this.forwardToJsp(request, response, view);
 		} else {
@@ -67,8 +78,15 @@ public class ViewsServlet extends AutowiredServlet {
 			throws ServletException, IOException {
 		final String strId = request.getParameter("id");
 		final String name = request.getParameter("name");
+		
+		if (strId !=null)
 		this.service.saveClient(new Client(Integer.parseInt(strId), name));
+		
+		else this.service.creeClient(name);
 		response.sendRedirect(request.getContextPath() + "/show-all.html");
+		
+		
+		
 	}
 
 	private void forwardToJsp(HttpServletRequest request, HttpServletResponse response, String view)

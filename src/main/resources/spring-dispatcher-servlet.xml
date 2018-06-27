@@ -5,11 +5,16 @@
    
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         				http://www.springframework.org/schema/beans/spring-beans.xsd
         				
         				http://www.springframework.org/schema/context
-      					http://www.springframework.org/schema/context/spring-context.xsd">
+      					http://www.springframework.org/schema/context/spring-context.xsd
+      					
+      					http://www.springframework.org/schema/data/jpa
+      					http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 
 	<context:component-scan base-package="service" />
@@ -21,5 +26,17 @@ qui manipule les objets d'articles partout où demander (via @Autowired) -->
 
     <bean id="service" class="service.ClientServiceImpl"></bean>
     <bean id="dao" class="dao.SQLClientDAO"></bean>
+    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    	 <property name="persistenceUnitName" value="couchev2"/>
+   
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    	<property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    
+    <jpa:repositories base-package="dao"/>
+    
 
 </beans>

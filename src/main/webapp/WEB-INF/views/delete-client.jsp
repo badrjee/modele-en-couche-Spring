@@ -9,7 +9,6 @@
 </head>
 <c:url value="/show-client.html?clientId=" var="showClientUrl" />
 <c:url value="/delete-client.html?clientId=" var="deleteClientUrl" />
-<c:url value="/cree-Client.html?clientId=" var="creeClientUrl" />
 <body>
 	<h1>Liste des clients :</h1>
 	<ul>
@@ -20,6 +19,5 @@
 		</li>		
 	</c:forEach>
 	</ul>
-	<h2><a href="${creeClientUrl}${client.id}">Créer</a></h2>
 </body>
 </html>
