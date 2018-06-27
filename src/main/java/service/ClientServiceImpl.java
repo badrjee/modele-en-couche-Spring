@@ -66,9 +66,11 @@ public class ClientServiceImpl implements ClientService {
 		
 	}
 	
+	@Override
 	public void creeClient(String name){
 		Client c = new Client(name);
 		dao.save(c);
 		
 	}
+	
 }

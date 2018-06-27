@@ -20,6 +20,6 @@
 		</li>		
 	</c:forEach>
 	</ul>
-	<h2><a href="${creeClientUrl}${client.id}">Créer</a></h2>
+	<h2><a href="${creeClientUrl}${client.id}">Ajouter un Client</a></h2>
 </body>
 </html>

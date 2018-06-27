@@ -3,19 +3,16 @@ package presentation;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import model.Client;
 import service.ClientService;
-import service.ClientServiceImpl;
 
 /**
  * Servlet permettant gérer toutes les requêtes HTTP GET se terminant par
@@ -60,7 +57,7 @@ public class ViewsServlet extends AutowiredServlet {
 			case "delete-client":
 				this.service.deleteClient(Integer.parseInt(clientId));
 				request.setAttribute("clients", this.service.getAllClient());
-				
+
 				break;
 
 			}
@@ -78,15 +75,17 @@ public class ViewsServlet extends AutowiredServlet {
 			throws ServletException, IOException {
 		final String strId = request.getParameter("id");
 		final String name = request.getParameter("name");
-		
-		if (strId !=null)
-		this.service.saveClient(new Client(Integer.parseInt(strId), name));
-		
-		else this.service.creeClient(name);
+
+		if (strId != null) {
+			this.service.saveClient(new Client(Integer.parseInt(strId), name));
+		}
+
+		else {
+			this.service.creeClient(name);
+		}
+
 		response.sendRedirect(request.getContextPath() + "/show-all.html");
-		
-		
-		
+
 	}
 
 	private void forwardToJsp(HttpServletRequest request, HttpServletResponse response, String view)

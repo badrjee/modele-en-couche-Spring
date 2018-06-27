@@ -8,7 +8,7 @@
 <title>création</title>
 </head>
 <body>
-	<h2>Créer un nouvel article</h2>
+	<h2>Créer un nouveau Client</h2>
 	<form method="post">
 		
 		<div>

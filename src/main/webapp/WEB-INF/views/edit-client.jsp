@@ -8,7 +8,7 @@
 <title>Mise à jour</title>
 </head>
 <body>
-	<h2>Créer un nouvel article</h2>
+	<h2>Rename Client</h2>
 	<form method="post">
 		<c:if test="${not empty client}">
 			<input type="hidden" name="id" value="${client.id}" />
