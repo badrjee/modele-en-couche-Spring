@@ -25,7 +25,7 @@
 qui manipule les objets d'articles partout où demander (via @Autowired) -->
 
     <bean id="service" class="service.ClientServiceImpl"></bean>
-    <bean id="dao" class="dao.SQLClientDAO"></bean>
+
     
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
     	 <property name="persistenceUnitName" value="couchev2"/>

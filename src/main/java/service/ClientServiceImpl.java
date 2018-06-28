@@ -5,9 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import dao.ClientDAO;
 import dao.ClientRepository;
-import dao.SQLClientDAO;
 import model.Client;
 
 public class ClientServiceImpl implements ClientService {
