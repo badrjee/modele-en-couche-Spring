@@ -77,7 +77,7 @@ public class ViewsServlet extends AutowiredServlet {
 		final String name = request.getParameter("name");
 
 		if (strId != null) {
-			this.service.saveClient(new Client(Integer.parseInt(strId), name));
+			this.service.updateClient(new Client(Integer.parseInt(strId), name));
 		}
 
 		else {

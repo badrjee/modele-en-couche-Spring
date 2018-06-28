@@ -20,22 +20,20 @@ public class ClientServiceImpl implements ClientService {
 	 * Méthode permettant d'ajouter un client en BDD
 	 * 
 	 */
-//	@Override
-//	public void saveClient(Client c) {
-//		if (c.getName().length() < 5) {
-//			System.out.println("Le nom doit comporter 5 caractères au minimum");
-//		} else if (c.getName() == null) {
-//			System.out.println("Merci de saisir un nom");
-//		} else {
-//			if (c.getId() != null) {
-//				//dao.update(c);
-//				//dao.
-//			} else {
-//				//dao.create(c);
-//				dao.save(c);
-//			}
-//		}
-//	}
+	@Override
+	public void updateClient(Client c) {
+		if (c.getName().length() < 5) {
+			System.out.println("Le nom doit comporter 5 caractères au minimum");
+		} else if (c.getName() == null) {
+			System.out.println("Merci de saisir un nom");
+		} else {
+			if (c.getId() != null) {
+				Client cc = this.getValidatedClient(c.getId());
+				cc.setName(c.getName());
+				dao.save(cc);
+			}
+		}
+	}
 
 	@Override
 	public Client getValidatedClient(int id) {
@@ -60,11 +58,7 @@ public class ClientServiceImpl implements ClientService {
 		dao.delete(c);
 	}
 
-	@Override
-	public void saveClient(Client c) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	@Override
 	public void creeClient(String name){
